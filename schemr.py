@@ -198,7 +198,7 @@ class Schemr():
 		scheme_name = re.sub(regex, '', scheme_path).split('/').pop()
 		return scheme_name
 
-	def find_scheme(self, scheme_path):
+	def find_canonical_scheme(self, scheme_path):
 		scheme_name = self.filter_scheme_name(scheme_path)
 		matching_paths = [path for name, path, favorited in self.load_schemes() if name == scheme_name]
 		if len(matching_paths) is not 0:
@@ -236,25 +236,25 @@ class SchemrListFavoriteSchemesCommand(sublime_plugin.WindowCommand):
 	# depending on whether or not the active scheme is already favorited.
 class SchemrFavoriteCurrentSchemeCommand(sublime_plugin.WindowCommand):
 	def run(self):
-		the_scheme = Schemr.find_scheme(Schemr.get_scheme())
+		the_scheme = Schemr.find_canonical_scheme(Schemr.get_scheme())
 		if the_scheme is not False:
 			favorites = Schemr.get_favorites()
 			favorites.append(the_scheme)
 			Schemr.set_favorites(favorites)
 
 	def is_enabled(self):
-		return Schemr.find_scheme(Schemr.get_scheme()) not in Schemr.get_favorites()
+		return Schemr.find_canonical_scheme(Schemr.get_scheme()) not in Schemr.get_favorites()
 
 class SchemrUnfavoriteCurrentSchemeCommand(sublime_plugin.WindowCommand):
 	def run(self):
-		the_scheme = Schemr.find_scheme(Schemr.get_scheme())
+		the_scheme = Schemr.find_canonical_scheme(Schemr.get_scheme())
 		if the_scheme is not False:
 			favorites = Schemr.get_favorites()
 			favorites.remove(the_scheme)
 			Schemr.set_favorites(favorites)
 
 	def is_enabled(self):
-		return Schemr.find_scheme(Schemr.get_scheme()) in Schemr.get_favorites()
+		return Schemr.find_canonical_scheme(Schemr.get_scheme()) in Schemr.get_favorites()
 
 	# Cycles the full list of schemes that are available
 	# regardless of whether or not they are favorited.
