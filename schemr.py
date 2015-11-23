@@ -317,16 +317,4 @@ class SchemrResetSyntaxSchemeCommand(sublime_plugin.TextCommand):
 
 		return sublime.load_settings(syntax_file).has('color_scheme')
 
-	# These commands are provided for backwards-compatibility.
-	# SchemrCycleSchemeCommand should be used instead.
-class SchemrNextSchemeCommand(sublime_plugin.WindowCommand):
-	def run(self):
-		self.window.run_command('schemr_cycle_schemes', {'direction': 'next'})
-class SchemrPreviousSchemeCommand(sublime_plugin.WindowCommand):
-	def run(self):
-		self.window.run_command('schemr_cycle_schemes', {'direction': 'prev'})
-class SchemrRandomSchemeCommand(sublime_plugin.WindowCommand):
-	def run(self):
-		self.window.run_command('schemr_cycle_schemes', {'direction': 'rand'})
-
 if is_ST2: plugin_loaded()
