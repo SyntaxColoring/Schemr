@@ -18,17 +18,17 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/Schemr/SchemrFavorites.sublime-settings"
+									"file": "${packages}/Schemr/Schemr.sublime-settings"
 								},
-								"caption": "Favorite Schemes – Default"
+								"caption": "Settings – Default"
 							},
 							
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/User/SchemrFavorites.sublime-settings"
+									"file": "${packages}/User/Schemr.sublime-settings"
 								},
-								"caption": "Favorite Schemes – User"
+								"caption": "Settings – User"
 							},
 							
 							{
