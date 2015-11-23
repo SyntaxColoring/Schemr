@@ -22,7 +22,7 @@ class Schemr(object):
 
 	def __init__(self):
 		self.preferences = dict(filename = 'Preferences.sublime-settings', data = sublime.load_settings('Preferences.sublime-settings'))
-		self.favorites = dict(filename = 'SchemrFavorites.sublime-settings', data = sublime.load_settings('SchemrFavorites.sublime-settings'))
+		self.schemr_preferences = dict(filename = 'Schemr.sublime-settings', data = sublime.load_settings('Schemr.sublime-settings'))
 
 		# Returns a list of all managed schemes.  Each scheme is itself represented by a list
 		# that contains, in order, (1) its pretty-printed name, (2) its path and (3) whether
@@ -217,11 +217,11 @@ class Schemr(object):
 		preferences.get('data').erase('color_scheme')
 
 	def set_favorites(self, schemes):
-		self.favorites.get('data').set('schemr_favorites', schemes)
-		sublime.save_settings(self.favorites.get('filename'))
+		self.schemr_preferences.get('data').set('schemr_favorites', schemes)
+		sublime.save_settings(self.schemr_preferences.get('filename'))
 
 	def get_favorites(self):
-		return self.favorites.get('data').get('schemr_favorites')
+		return self.schemr_preferences.get('data').get('schemr_favorites')
 
 	def filter_scheme_name(self, scheme_path):
 		regex = re.compile('(\ \(SL\))|(\ Color\ Highlighter)?.tmTheme', re.IGNORECASE)
