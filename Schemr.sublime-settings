@@ -5,5 +5,10 @@
     // or "Remove current scheme from favorites" from the command palette.
     "schemr_favorites":
     [
-    ]
+    ],
+    
+    "schemr_brightness_flags": true,
+    "schemr_brightness_theshold": 100,
+	
+	"schemr_preview_selection": true
 }
