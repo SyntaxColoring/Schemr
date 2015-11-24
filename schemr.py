@@ -74,9 +74,9 @@ class Schemr(object):
 		# common listing functionality.
 	def list_schemes(self, window, schemes, preferences):
 		# Get the user-defined settings or return default values.
-		schemr_brightness_theshold = self.preferences.get('data').get('schemr_brightness_theshold', 100)
-		schemr_brightness_flags = self.preferences.get('data').get('schemr_brightness_flags', True)
-		schemr_preview_selection = self.preferences.get('data').get('schemr_preview_selection', True)
+		schemr_brightness_theshold = self.schemr_preferences.get('data').get('schemr_brightness_theshold', 100)
+		schemr_brightness_flags = self.schemr_preferences.get('data').get('schemr_brightness_flags', True)
+		schemr_preview_selection = self.schemr_preferences.get('data').get('schemr_preview_selection', True)
 
 		the_scheme_path = self.get_scheme(preferences)
 		the_scheme_name = self.filter_scheme_name(the_scheme_path)
